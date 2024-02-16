@@ -11,7 +11,12 @@
   <body>
     <div id="unity-container" class="unity-desktop">
       <canvas id="unity-canvas" width=960 height=600 tabindex="-1"></canvas>
-    </div>
+      <div id="unity-loading-bar">
+        <div id="unity-logo"></div>
+        <div id="unity-progress-bar-empty">
+          <div id="unity-progress-bar-full"></div>
+        </div>
+      </div>
     <script>
 
       var container = document.querySelector("#unity-container");
@@ -85,12 +90,16 @@
 
         canvas.style.width = "960px";
         canvas.style.height = "600px";
-      }      
+      }
+
+      loadingBar.style.display = "block";
+      
       var unityGameInstance = null;
       var script = document.createElement("script");
       script.src = loaderUrl;
       script.onload = () => {
         createUnityInstance(canvas, config, (progress) => {
+          progressBarFull.style.width = 100 * progress + "%";
               }).then((unityInstance) => {
                 loadingBar.style.display = "none";
                 unityGameInstance = unityInstance;
