@@ -17,6 +17,13 @@
           <div id="unity-progress-bar-full"></div>
         </div>
       </div>
+      <div id="unity-warning"> </div>
+      <div id="unity-footer">
+        <div id="unity-webgl-logo"></div>
+        <div id="unity-fullscreen-button"></div>
+        <div id="unity-build-title">Desi Dress Up Make Up Stylist</div>
+      </div>
+    </div>
     <script>
 
       var container = document.querySelector("#unity-container");
@@ -51,11 +58,11 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/Build.loader.js";
+      var loaderUrl = buildUrl + "/AdTestDDU.loader.js";
       var config = {
-        dataUrl: buildUrl + "/Build.data.unityweb",
-        frameworkUrl: buildUrl + "/Build.framework.js.unityweb",
-        codeUrl: buildUrl + "/Build.wasm.unityweb",
+        dataUrl: buildUrl + "/AdTestDDU.data",
+        frameworkUrl: buildUrl + "/AdTestDDU.framework.js",
+        codeUrl: buildUrl + "/AdTestDDU.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "pixcellplay",
         productName: "Desi Dress Up Make Up Stylist",
@@ -93,7 +100,6 @@
       }
 
       loadingBar.style.display = "block";
-      
       var unityGameInstance = null;
       var script = document.createElement("script");
       script.src = loaderUrl;
@@ -103,9 +109,9 @@
               }).then((unityInstance) => {
                 loadingBar.style.display = "none";
                 unityGameInstance = unityInstance;
-                //fullscreenButton.onclick = () => {
-                  //unityInstance.SetFullscreen(1);
-                //};
+                fullscreenButton.onclick = () => {
+                  unityInstance.SetFullscreen(1);
+                };
               }).catch((message) => {
                 alert(message);
               });
