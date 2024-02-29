@@ -16,11 +16,7 @@
           <div id="unity-progress-bar-full"></div>
         </div>
       </div>
-      <div id="unity-warning"> </div>
-      <div id="unity-footer">
-        <div id="unity-webgl-logo"></div>
-        <div id="unity-build-title">Desi Dress Up Make Up Stylist</div>
-      </div>
+      <!--<div id="unity-warning"> </div>-->
     </div>
     <script>
 
@@ -105,8 +101,7 @@
         createUnityInstance(canvas, config, (progress) => {
           progressBarFull.style.width = 100 * progress + "%";
               }).then((unityInstance) => {
-                loadingBar.style.display = "none";
-               
+                loadingBar.style.display = "none"; 
               }).catch((message) => {
                 alert(message);
               });
